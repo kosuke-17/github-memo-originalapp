@@ -3,7 +3,7 @@ import EmailInput from "../atoms/EmailInput";
 import LoginButton from "../atoms/LoginButton";
 import { GithubOutlined } from "@ant-design/icons";
 import React from "react";
-import PasswordInput from "../atoms/passwordInput";
+import PasswordInput from "../atoms/PasswordInput";
 interface PROPS {
   loginClick: Function;
 }

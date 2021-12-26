@@ -26,7 +26,10 @@ const LoginCard: React.FC<PROPS> = ({ loginClick }) => {
               <LoginButton name="ログイン" loginClick={loginClick} />
             </form>
           </div>
-          GitHubアカウントをお持ちでない方は<a href="#">こちら</a>
+          GitHubアカウントをお持ちでない方は
+          <a href="#" className="hover:text-gray-400">
+            こちら
+          </a>
         </div>
       </Card>
     </React.Fragment>

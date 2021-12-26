@@ -7,3 +7,7 @@
 
 - npm i tailwindcss@latest postcss@latest autoprefixer@latest
 - npx tailwindcss init -p
+
+## コンポーネントの作成
+
+- ant design の導入

@@ -10,7 +10,7 @@ export const NAVITEMS = [
   {
     text: "graph",
     icon: <LineChartOutlined />,
-    link: "/",
+    link: "/linegraph-page",
   },
   {
     text: "about",

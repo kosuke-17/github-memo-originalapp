@@ -1,4 +1,5 @@
 import {
+  PushpinOutlined,
   LineChartOutlined,
   TeamOutlined,
   LoginOutlined,
@@ -7,6 +8,11 @@ import {
 
 // ヘッダーのナビゲーションデータ
 export const NAVITEMS = [
+  {
+    text: "pins",
+    icon: <PushpinOutlined />,
+    link: "/pinnedItems-page",
+  },
   {
     text: "graph",
     icon: <LineChartOutlined />,

@@ -16,7 +16,7 @@ const Header: React.FC = () => {
   };
 
   return (
-    <div className="flex justify-between bg-gray-300  ">
+    <div className="flex justify-between bg-gray-300 ">
       {/* サイトロゴ */}
       <div className="pt-3 pl-4 w-1/4">
         <Link href="/">

@@ -27,3 +27,21 @@ export const PINNEDITEMS_QUERY = gql`
     }
   }
 `;
+
+export const COMMITCOUNT_QUERY = gql`
+  {
+    user(login: "kosuke-17") {
+      contributionsCollection {
+        contributionCalendar {
+          totalContributions
+          weeks {
+            contributionDays {
+              contributionCount
+              date
+            }
+          }
+        }
+      }
+    }
+  }
+`;

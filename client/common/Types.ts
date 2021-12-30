@@ -33,13 +33,14 @@ export type ITEM_LANGUAGE_EDGE = {
  */
 // ---------------------------------------
 export type CONTRIBUTIONCALENDARWEEKS = {
-  contributionCalendarWeeks: [WEEK];
+  contributionCalendarWeeks: [CONTRIBUTIONDAYS];
 };
 
 export type WEEK = {
-  contributionDays: CONTRIBUTIONDAY[];
+  contributionDays: [CONTRIBUTIONDAY];
 };
 
+export type CONTRIBUTIONDAYS = [CONTRIBUTIONDAY];
 export type CONTRIBUTIONDAY = {
   __typename: string;
   contributionCount: number;

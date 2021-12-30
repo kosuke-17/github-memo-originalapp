@@ -4,15 +4,15 @@ import { Key } from "react";
  * ピン留めされているプロジェクトの型定義
  */
 // ---------------------------------------
-export interface PINNEDITEMS {
+export type PINNEDITEMS = {
   pinnedItems: [PINNEDITEM];
-}
-export interface PINNEDITEM {
+};
+export type PINNEDITEM = {
   __typename: string;
   node: PINNEDITEM_NODE;
-}
+};
 
-export interface PINNEDITEM_NODE {
+export type PINNEDITEM_NODE = {
   id: Key;
   name: string;
   url: string;
@@ -21,9 +21,32 @@ export interface PINNEDITEM_NODE {
     __typename: string;
     edges: [ITEM_LANGUAGE_EDGE];
   };
-}
+};
 
-export interface ITEM_LANGUAGE_EDGE {
+export type ITEM_LANGUAGE_EDGE = {
   node: { id: string; name: string; color: string };
-}
+};
+// ---------------------------------------
+
+/**
+ * コミットデータの型定義
+ */
+// ---------------------------------------
+export type CONTRIBUTIONCALENDARWEEKS = {
+  contributionCalendarWeeks: [WEEK];
+};
+
+export type WEEK = {
+  contributionDays: CONTRIBUTIONDAY[];
+};
+
+export type CONTRIBUTIONDAY = {
+  __typename: string;
+  contributionCount: number;
+  date: string;
+};
+
+export type DAY = {
+  contributionCount: number;
+};
 // ---------------------------------------

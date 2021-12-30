@@ -17,6 +17,10 @@ const PinnedItemsPage: React.FC<PINNEDITEMS> = ({ pinnedItems }) => {
 
 export default PinnedItemsPage;
 
+/**
+ * ピン留めしているitemを取得してリターンしている
+ * @returns - pinnedItems(ピン留めしてるプロジェクト)
+ */
 export const getStaticProps = async () => {
   const httpLink = createHttpLink({ uri: process.env.GRAPHQL_ENDPOINT });
   const authLink = setContext((_, { headers }) => {

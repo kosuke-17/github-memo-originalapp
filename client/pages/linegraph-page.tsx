@@ -1,12 +1,11 @@
 import LineGraph from "../components/templates/LineGraph";
+import GraphCard from "../components/atoms/GraphCard";
 import { CategoryScale } from "chart.js";
 import Chart from "chart.js/auto";
-import GraphCard from "../components/atoms/GraphCard";
 Chart.register(CategoryScale);
-import { ApolloClient, InMemoryCache, createHttpLink } from "@apollo/client";
-import { setContext } from "@apollo/client/link/context";
 import { COMMITCOUNT_QUERY } from "../common/Query";
 import { DAY, WEEK, CONTRIBUTIONCALENDARWEEKS } from "../common/Types";
+import { getClient } from "../common/hooks/getClient";
 
 const LineGraphPage: React.FC<CONTRIBUTIONCALENDARWEEKS> = ({
   contributionCalendarWeeks,
@@ -22,23 +21,10 @@ export default LineGraphPage;
 
 // コミットデータを取得してpropsとして渡している(コミットデータ：コミット数、コミット日付)
 export const getStaticProps = async () => {
-  const httpLink = createHttpLink({ uri: process.env.GRAPHQL_ENDPOINT });
-  const authLink = setContext((_, { headers }) => {
-    return {
-      headers: {
-        ...headers,
-        authorization: `Bearer ${process.env.GITHUB_ACCESS_TOKEN}`,
-      },
-    };
-  });
-  const client = new ApolloClient({
-    link: authLink.concat(httpLink),
-    cache: new InMemoryCache(),
-  });
-  const LOGINUSERNAME = "kosuke-17";
+  const client = getClient();
   const { data } = await client.query({
     query: COMMITCOUNT_QUERY,
-    variables: { user: LOGINUSERNAME },
+    variables: { user: "kosuke-17" },
   });
 
   const { user } = data;

@@ -45,16 +45,19 @@ export const totalCommitsInMonth = ({
   return totalCommitsInMonth;
 };
 
+// 各月のコミット数を算出
 export const totalCommitsInDay = ({
   contributionCalendarWeeks,
-}: CONTRIBUTIONCALENDARWEEKS): Array<number[]> => {
+}: CONTRIBUTIONCALENDARWEEKS) => {
   let monthCommitsInYear = new Array<number[]>();
+  let commmitDate = new Array<string[]>();
 
   // 各月ごとにコミット数を分けている
   for (const contributionCalendarWeek of contributionCalendarWeeks) {
     // 12月分の配列が存在しなければ追加する
     if (monthCommitsInYear.length < 12) {
       monthCommitsInYear.push(new Array<number>());
+      commmitDate.push(new Array<string>());
     }
 
     contributionCalendarWeek.map((day: CONTRIBUTIONDAY) => {
@@ -62,17 +65,21 @@ export const totalCommitsInDay = ({
       for (let i = 0; i <= 8; i++) {
         if (day.date.includes(`2021-0${i + 1}`)) {
           monthCommitsInYear[i].push(day.contributionCount);
+          commmitDate[i].push(day.date);
         }
       }
       // 11月と12月の日にちごとのコミット数をプッシュ
       for (let i = 9; i <= 11; i++) {
         if (day.date.includes(`2021-${i + 1}`)) {
           monthCommitsInYear[i].push(day.contributionCount);
+          commmitDate[i].push(day.date);
         }
       }
     });
   }
 
+  console.log(commmitDate);
+
   // 各月のコミット数を返す
-  return monthCommitsInYear;
+  return { monthCommitsInYear, commmitDate };
 };

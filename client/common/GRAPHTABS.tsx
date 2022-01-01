@@ -1,11 +1,11 @@
 // グラフのナビゲーションデータ
 export const GRAPHTABS = [
   {
-    text: "年",
+    text: "棒グラフ",
     link: "/linegraph-page",
   },
   {
-    text: "月",
+    text: "円グラフ",
     link: "/",
   },
 ];

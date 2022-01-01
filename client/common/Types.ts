@@ -1,5 +1,11 @@
 import { Key } from "react";
 
+export type NAVITEM = {
+  text: string;
+  icon: JSX.Element;
+  link: string;
+};
+
 /**
  * ピン留めされているプロジェクトの型定義
  */

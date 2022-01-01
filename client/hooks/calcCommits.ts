@@ -8,7 +8,10 @@ export const totalCommitsInMonth = ({
 
   // 各月ごとにコミット数を分けている
   for (const contributionCalendarWeek of contributionCalendarWeeks) {
-    monthCommitsInYear.push(new Array<number>());
+    // 12月分の配列が存在しなければ追加する
+    if (monthCommitsInYear.length < 12) {
+      monthCommitsInYear.push(new Array<number>());
+    }
 
     contributionCalendarWeek.map((day: CONTRIBUTIONDAY) => {
       // 1月から10月までの日にちごとのコミット数をプッシュ

@@ -9,7 +9,7 @@ const GraphTabCard: React.FC = () => {
         {GRAPHTABS.map((tab: GRAPHTAB, index) => {
           return (
             <Link href={tab.link} key={index}>
-              <a className="px-8 py-2 text-black text-3xl hover:cursor-pointer hover:text-gray-400 shadow-xl border rounded-lg">
+              <a className="bg-white px-8 py-2 text-black text-3xl hover:cursor-pointer hover:text-gray-400 shadow-xl border rounded-lg">
                 {tab.text}
               </a>
             </Link>

@@ -1,21 +1,56 @@
-import LineGraph from "../components/templates/LineGraph";
+import LineGraphInMonth from "../components/templates/LineGraphInMonth";
 import GraphCard from "../components/atoms/GraphCard";
-import TabCard from "../components/atoms/TabCard";
+import TabCard from "../components/atoms/GraphTabCard";
 import { CategoryScale } from "chart.js";
 import Chart from "chart.js/auto";
 Chart.register(CategoryScale);
 import { COMMITCOUNT_QUERY } from "../common/Query";
 import { DAY, WEEK, CONTRIBUTIONCALENDARWEEKS } from "../common/Types";
 import { getClient } from "../hooks/getClient";
+import { Select } from "antd";
+import { useState } from "react";
+import LineGraphInDays from "../components/templates/LineGraphInDays";
+
+const { Option } = Select;
 
 const LineGraphPage: React.FC<CONTRIBUTIONCALENDARWEEKS> = ({
   contributionCalendarWeeks,
 }) => {
+  const [graphCmponent, setGraphCmponent] = useState<string>("year");
+  const chngeGraph = (YearOrMonth: string) => {
+    setGraphCmponent(YearOrMonth);
+  };
+
   return (
     <>
       <TabCard />
       <GraphCard>
-        <LineGraph contributionCalendarWeeks={contributionCalendarWeeks} />
+        <Select
+          placeholder="月"
+          defaultValue={graphCmponent}
+          style={{
+            width: 120,
+            paddingLeft: 20,
+            marginTop: 20,
+          }}
+          onChange={chngeGraph}
+        >
+          <Option value="year">月</Option>
+          <Option value="month">年</Option>
+        </Select>
+        {graphCmponent === "year" ? (
+          <div className="flex justify-center items-center ">
+            <LineGraphInMonth
+              contributionCalendarWeeks={contributionCalendarWeeks}
+            />
+          </div>
+        ) : (
+          <div className="flex justify-center items-center ">
+            <LineGraphInDays
+              contributionCalendarWeeks={contributionCalendarWeeks}
+            />
+          </div>
+        )}
       </GraphCard>
     </>
   );

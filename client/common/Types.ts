@@ -5,6 +5,10 @@ export type NAVITEM = {
   icon: JSX.Element;
   link: string;
 };
+export type GRAPHTAB = {
+  text: string;
+  link: string;
+};
 
 /**
  * ピン留めされているプロジェクトの型定義

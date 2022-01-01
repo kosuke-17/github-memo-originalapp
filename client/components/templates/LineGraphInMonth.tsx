@@ -4,7 +4,7 @@ import { totalCommitsInMonth } from "../../hooks/calcCommits";
 import { MONTH_LABEL } from "../../common/MONTH_LABEL";
 import { CONTRIBUTIONCALENDARWEEKS } from "../../common/Types";
 
-const LineGraph: React.FC<CONTRIBUTIONCALENDARWEEKS> = ({
+const LineGraphInMonth: React.FC<CONTRIBUTIONCALENDARWEEKS> = ({
   contributionCalendarWeeks,
 }) => {
   //各月のコミット数を取得
@@ -17,7 +17,7 @@ const LineGraph: React.FC<CONTRIBUTIONCALENDARWEEKS> = ({
     labels: MONTH_LABEL,
     datasets: [
       {
-        label: "Commit",
+        label: "Commit数",
         fill: false,
         data: commitsDataInMonth,
         borderColor: "rgba(75,192,192,1)",
@@ -25,15 +25,26 @@ const LineGraph: React.FC<CONTRIBUTIONCALENDARWEEKS> = ({
       },
     ],
   };
+  const options = {
+    scales: {
+      x: {
+        display: true,
+        title: {
+          display: true,
+          text: "2021年",
+          size: 20,
+        },
+      },
+    },
+  };
 
   return (
-    <div className="w-screen p-10">
-      <h2>Commit数</h2>
+    <div className="w-screen p-8">
       <div className="flex justify-center">
-        <Line data={data} />
+        <Line options={options} data={data} />
       </div>
     </div>
   );
 };
 
-export default LineGraph;
+export default LineGraphInMonth;

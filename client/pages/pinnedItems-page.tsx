@@ -1,8 +1,7 @@
 import { PINNEDITEMS_QUERY } from "../common/Query";
 import { PINNEDITEM, PINNEDITEMS } from "../common/Types";
 import PinnedItem from "../components/templates/PinnedItem";
-import { ApolloClient, InMemoryCache, createHttpLink } from "@apollo/client";
-import { setContext } from "@apollo/client/link/context";
+import { getClient } from "../hooks/getClient";
 
 const PinnedItemsPage: React.FC<PINNEDITEMS> = ({ pinnedItems }) => {
   return (
@@ -22,23 +21,10 @@ export default PinnedItemsPage;
  * @returns - pinnedItems(ピン留めしてるプロジェクト)
  */
 export const getStaticProps = async () => {
-  const httpLink = createHttpLink({ uri: process.env.GRAPHQL_ENDPOINT });
-  const authLink = setContext((_, { headers }) => {
-    return {
-      headers: {
-        ...headers,
-        authorization: `Bearer ${process.env.GITHUB_ACCESS_TOKEN}`,
-      },
-    };
-  });
-  const client = new ApolloClient({
-    link: authLink.concat(httpLink),
-    cache: new InMemoryCache(),
-  });
-  const LOGINUSERNAME = "kosuke-17";
+  const client = getClient();
   const { data } = await client.query({
     query: PINNEDITEMS_QUERY,
-    variables: { user: LOGINUSERNAME },
+    variables: { user: "kosuke-17" },
   });
 
   const { user } = data;

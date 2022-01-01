@@ -26,7 +26,7 @@ const LineGraphPage: React.FC<CONTRIBUTIONCALENDARWEEKS> = ({
       <TabCard />
       <GraphCard>
         <Select
-          placeholder="月"
+          placeholder="年"
           defaultValue={graphCmponent}
           style={{
             width: 120,
@@ -35,21 +35,17 @@ const LineGraphPage: React.FC<CONTRIBUTIONCALENDARWEEKS> = ({
           }}
           onChange={chngeGraph}
         >
-          <Option value="year">月</Option>
-          <Option value="month">年</Option>
+          <Option value="year">年</Option>
+          <Option value="month">月</Option>
         </Select>
         {graphCmponent === "year" ? (
-          <div className="flex justify-center items-center ">
-            <LineGraphInMonth
-              contributionCalendarWeeks={contributionCalendarWeeks}
-            />
-          </div>
+          <LineGraphInMonth
+            contributionCalendarWeeks={contributionCalendarWeeks}
+          />
         ) : (
-          <div className="flex justify-center items-center ">
-            <LineGraphInDays
-              contributionCalendarWeeks={contributionCalendarWeeks}
-            />
-          </div>
+          <LineGraphInDays
+            contributionCalendarWeeks={contributionCalendarWeeks}
+          />
         )}
       </GraphCard>
     </>

@@ -39,9 +39,11 @@ const LineGraphInMonth: React.FC<CONTRIBUTIONCALENDARWEEKS> = ({
   };
 
   return (
-    <div className="w-screen p-8">
-      <div className="flex justify-center">
-        <Line options={options} data={data} />
+    <div className="flex justify-center items-center ">
+      <div className="w-screen p-8">
+        <div className="flex justify-center">
+          <Line options={options} data={data} />
+        </div>
       </div>
     </div>
   );

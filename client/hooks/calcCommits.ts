@@ -1,4 +1,4 @@
-import { CONTRIBUTIONCALENDARWEEKS, CONTRIBUTIONDAY } from "../Types";
+import { CONTRIBUTIONCALENDARWEEKS, CONTRIBUTIONDAY } from "../common/Types";
 
 export const totalCommitsInMonth = ({
   contributionCalendarWeeks,

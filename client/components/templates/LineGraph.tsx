@@ -1,6 +1,6 @@
 import React from "react";
 import { Line } from "react-chartjs-2";
-import { totalCommitsInMonth } from "../../common/hooks/calcCommitsInMonth";
+import { totalCommitsInMonth } from "../../hooks/calcCommits";
 import { MONTH_LABEL } from "../../common/MONTH_LABEL";
 import { CONTRIBUTIONCALENDARWEEKS } from "../../common/Types";
 
@@ -25,25 +25,6 @@ const LineGraph: React.FC<CONTRIBUTIONCALENDARWEEKS> = ({
       },
     ],
   };
-  // const options = {
-  //   responsive: true,
-  //   plugins: {
-  //     legend: {
-  //       position: "top" as const,
-  //     },
-  //   },
-  //   scales: {
-  //     y: {
-  //       type: "linear" as const,
-  //       display: true,
-  //       scaleLabel: {
-  //         display: true,
-  //         labelString: "実数(kg)",
-  //       },
-  //       position: "left" as const,
-  //     },
-  //   },
-  // };
 
   return (
     <div className="w-screen p-10">

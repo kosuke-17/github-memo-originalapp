@@ -1,10 +1,5 @@
 import Link from "next/link";
-
-interface NAVITEM {
-  text: string;
-  icon: JSX.Element;
-  link: string;
-}
+import { NAVITEM } from "../../common/Types";
 
 const NavItem: React.FC<NAVITEM> = ({ text, icon, link }) => {
   return (

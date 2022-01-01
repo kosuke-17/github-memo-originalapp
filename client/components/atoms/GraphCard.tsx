@@ -1,4 +1,4 @@
-const Card: React.FC = ({ children }) => {
+const GraphCard: React.FC = ({ children }) => {
   return (
     <div className="flex justify-center items-center">
       <div className="flex justify-center items-center lg:h-auto  lg:w-1/2 md:w-3/5 sm:w-1/3 shadow-xl bg-white border rounded-lg lg:p-10 md:p-4 sm:p-1">
@@ -8,4 +8,4 @@ const Card: React.FC = ({ children }) => {
   );
 };
 
-export default Card;
+export default GraphCard;

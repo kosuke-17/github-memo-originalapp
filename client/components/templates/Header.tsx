@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import NavItem from "../atoms/NavItem";
-import { NAVITEMS } from "../../common/NavItems";
+import { NAVITEMS } from "../../common/NAVITEMS";
 import HumbergerMenu from "../atoms/HumbergerMenu";
 import ModalScreen from "../atoms/ModalScreen";
 import Card from "../atoms/Card";

@@ -1,19 +1,23 @@
 import LineGraph from "../components/templates/LineGraph";
 import GraphCard from "../components/atoms/GraphCard";
+import TabCard from "../components/atoms/TabCard";
 import { CategoryScale } from "chart.js";
 import Chart from "chart.js/auto";
 Chart.register(CategoryScale);
 import { COMMITCOUNT_QUERY } from "../common/Query";
 import { DAY, WEEK, CONTRIBUTIONCALENDARWEEKS } from "../common/Types";
-import { getClient } from "../common/hooks/getClient";
+import { getClient } from "../hooks/getClient";
 
 const LineGraphPage: React.FC<CONTRIBUTIONCALENDARWEEKS> = ({
   contributionCalendarWeeks,
 }) => {
   return (
-    <GraphCard>
-      <LineGraph contributionCalendarWeeks={contributionCalendarWeeks} />
-    </GraphCard>
+    <>
+      <TabCard />
+      <GraphCard>
+        <LineGraph contributionCalendarWeeks={contributionCalendarWeeks} />
+      </GraphCard>
+    </>
   );
 };
 

@@ -1,4 +1,5 @@
 import { CONTRIBUTIONCALENDARWEEKS, CONTRIBUTIONDAY } from "../common/Types";
+import moment from "moment";
 
 export const totalCommitsInMonth = ({
   contributionCalendarWeeks,
@@ -65,21 +66,18 @@ export const totalCommitsInDay = ({
       for (let i = 0; i <= 8; i++) {
         if (day.date.includes(`2021-0${i + 1}`)) {
           monthCommitsInYear[i].push(day.contributionCount);
-          commmitDate[i].push(day.date);
+          commmitDate[i].push(moment(day.date).format("D"));
         }
       }
       // 11月と12月の日にちごとのコミット数をプッシュ
       for (let i = 9; i <= 11; i++) {
         if (day.date.includes(`2021-${i + 1}`)) {
           monthCommitsInYear[i].push(day.contributionCount);
-          commmitDate[i].push(day.date);
+          commmitDate[i].push(moment(day.date).format("D"));
         }
       }
     });
   }
-
-  console.log(commmitDate);
-
   // 各月のコミット数を返す
   return { monthCommitsInYear, commmitDate };
 };

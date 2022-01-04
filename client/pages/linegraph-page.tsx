@@ -4,12 +4,13 @@ import TabCard from "../components/atoms/GraphTabCard";
 import { CategoryScale } from "chart.js";
 import Chart from "chart.js/auto";
 Chart.register(CategoryScale);
-import { COMMITCOUNT_QUERY } from "../common/Query";
-import { DAY, WEEK, CONTRIBUTIONCALENDARWEEKS } from "../common/Types";
-import { getClient } from "../hooks/getClient";
+import { CONTRIBUTIONCALENDARWEEKS } from "../common/Types";
 import { Select } from "antd";
 import { useState } from "react";
+import LineGraphInMonth from "../components/templates/LineGraphInMonth";
+import commitsDataFromGithub from "../hooks/api/commitsDataFromGithub";
 import LineGraphInDays from "../components/templates/LineGraphInDays";
+
 
 const { Option } = Select;
 
@@ -46,11 +47,12 @@ const LineGraphPage: React.FC<CONTRIBUTIONCALENDARWEEKS> = ({
           <Option value="year">年</Option>
           <Option value="month">月</Option>
         </Select>
+        {/* 年、月の選択によって表示させるグラフを変える */}
         {graphCmponent === "year" ? (
           <LineGraphInMonth
             contributionCalendarWeeks={contributionCalendarWeeks}
           />
-        ) : (
+        ) : graphCmponent === "month" ? (
           <span>
             <Select
               placeholder="年"
@@ -80,6 +82,8 @@ const LineGraphPage: React.FC<CONTRIBUTIONCALENDARWEEKS> = ({
               currentMonth={currentMonth}
             />
           </span>
+        ) : (
+          <div>Error...</div>
         )}
       </GraphCard>
     </>
@@ -90,23 +94,7 @@ export default LineGraphPage;
 
 // コミットデータを取得してpropsとして渡している(コミットデータ：コミット数、コミット日付)
 export const getStaticProps = async () => {
-  const client = getClient();
-  const { data } = await client.query({
-    query: COMMITCOUNT_QUERY,
-    variables: { user: "kosuke-17" },
-  });
-
-  const { user } = data;
-  const contributionCalendarWeeks: WEEK =
-    user.contributionsCollection.contributionCalendar.weeks.map(
-      (week: WEEK) => {
-        // 日にちごとのコミット数を週単位で配列に格納
-        const weekcommitsData = week.contributionDays.map((day: DAY) => {
-          return day;
-        });
-        return weekcommitsData;
-      }
-    );
+  const contributionCalendarWeeks = await commitsDataFromGithub();
   return {
     props: { contributionCalendarWeeks },
   };

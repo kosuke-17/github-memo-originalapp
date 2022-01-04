@@ -13,6 +13,10 @@ export type GRAPHTAB = {
   text: string;
   link: string;
 };
+export type CHANGEMODAL_PROPS = {
+  children: ReactNode;
+  chngeModal: Function;
+};
 // ---------------------------------------
 
 /**

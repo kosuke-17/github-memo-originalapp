@@ -8,7 +8,7 @@ const CommitCalendarCard: React.FC<CommitCalendarCard> = ({
   return (
     <div className="flex">
       <span
-        className="border rounded p-2"
+        className="border rounded p-2 hover:opacity-60"
         style={{ backgroundColor: dayColor }}
       >
         {children}

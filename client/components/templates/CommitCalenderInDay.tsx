@@ -15,7 +15,6 @@ const CommitCalenderInDay: React.FC<PROPS> = ({
   const { monthCommitsInYear, commmitDate } = totalCommitsInDay({
     contributionCalendarWeeks,
   });
-  console.log(commmitDate);
 
   return (
     <div className="flex justify-center items-center">

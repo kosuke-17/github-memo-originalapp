@@ -6,6 +6,6 @@ export const GRAPHTABS = [
   },
   {
     text: "円グラフ",
-    link: "/",
+    link: "#",
   },
 ];

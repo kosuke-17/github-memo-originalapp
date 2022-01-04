@@ -1,4 +1,4 @@
-export const MONTH_LABEL = [
+export const MONTHES_LABEL = [
   "1月",
   "2月",
   "3月",

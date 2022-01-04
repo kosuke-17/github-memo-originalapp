@@ -1,4 +1,8 @@
-import { CONTRIBUTIONCALENDARWEEKS, CONTRIBUTIONDAY } from "../common/Types";
+import {
+  CONTRIBUTIONCALENDARWEEKS,
+  CONTRIBUTIONDAY,
+  SelectedMonth_PROPS,
+} from "../common/Types";
 import moment from "moment";
 
 export const totalCommitsInMonth = ({
@@ -46,7 +50,7 @@ export const totalCommitsInMonth = ({
   return totalCommitsInMonth;
 };
 
-// 各月のコミット数を算出
+// 各月のコミット数と日付を算出
 export const totalCommitsInDay = ({
   contributionCalendarWeeks,
 }: CONTRIBUTIONCALENDARWEEKS) => {
@@ -78,6 +82,41 @@ export const totalCommitsInDay = ({
       }
     });
   }
-  // 各月のコミット数を返す
+  // 各月のコミット数と日付を返す
   return { monthCommitsInYear, commmitDate };
+};
+
+// 受け取った月のコミット数とコミットデータを
+export const commitDataBySelectedMonth = ({
+  contributionCalendarWeeks,
+  currentMonth,
+}: SelectedMonth_PROPS) => {
+  let CommitsDataInMonth = new Array<CONTRIBUTIONDAY>();
+  for (const contributionCalendarWeek of contributionCalendarWeeks) {
+    contributionCalendarWeek.map((day: CONTRIBUTIONDAY) => {
+      if (day.date.includes(`2021-${currentMonth}`)) {
+        // 10月から12月の場合以下の処理
+        let formatDate = moment(day.date).format("D");
+        CommitsDataInMonth.push({
+          __typename: day.__typename,
+          contributionCount: day.contributionCount,
+          date: formatDate,
+          color: day.color,
+        });
+      } else if (day.date.includes(`2021-0${currentMonth}`)) {
+        // 1月から9月の場合以下の処理
+        let formatDate = moment(day.date).format("D");
+        CommitsDataInMonth.push({
+          __typename: day.__typename,
+          contributionCount: day.contributionCount,
+          date: formatDate,
+          color: day.color,
+        });
+      } else {
+        // IF ERROR, RETURN OBJ
+        return {};
+      }
+    });
+  }
+  return CommitsDataInMonth;
 };

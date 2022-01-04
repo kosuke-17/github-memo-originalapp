@@ -1,9 +1,18 @@
 import React from "react";
+import { CommitCalendarCard } from "../../common/Types";
 
-const CommitCalendarCard: React.FC = ({ children }) => {
+const CommitCalendarCard: React.FC<CommitCalendarCard> = ({
+  children,
+  dayColor,
+}) => {
   return (
-    <div className="flex justify-center">
-      <span className="border rounded p-4">{children}</span>
+    <div className="flex">
+      <span
+        className="border rounded p-2"
+        style={{ backgroundColor: dayColor }}
+      >
+        {children}
+      </span>
     </div>
   );
 };

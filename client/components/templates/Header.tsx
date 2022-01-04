@@ -66,9 +66,9 @@ const Header: React.FC = () => {
           </React.Fragment>
         ) : (
           <div className="pb-2 pr-8 md:invisible">
-            <button onClick={() => chngeModal()}>
+            <ModalButton chngeModal={chngeModal}>
               <HumbergerMenu />
-            </button>
+            </ModalButton>
           </div>
         )}
       </div>

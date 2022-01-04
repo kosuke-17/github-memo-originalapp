@@ -1,4 +1,4 @@
-import LineGraphInYear from "../components/templates/LineGraphInYear";
+import LineGraphInMonth from "../components/templates/LineGraphInMonth";
 import GraphCard from "../components/atoms/GraphCard";
 import TabCard from "../components/atoms/GraphTabCard";
 import { CategoryScale } from "chart.js";
@@ -9,6 +9,8 @@ import { Select } from "antd";
 import { useState } from "react";
 import LineGraphInMonth from "../components/templates/LineGraphInMonth";
 import commitsDataFromGithub from "../hooks/api/commitsDataFromGithub";
+import LineGraphInDays from "../components/templates/LineGraphInDays";
+
 
 const { Option } = Select;
 
@@ -47,7 +49,7 @@ const LineGraphPage: React.FC<CONTRIBUTIONCALENDARWEEKS> = ({
         </Select>
         {/* 年、月の選択によって表示させるグラフを変える */}
         {graphCmponent === "year" ? (
-          <LineGraphInYear
+          <LineGraphInMonth
             contributionCalendarWeeks={contributionCalendarWeeks}
           />
         ) : graphCmponent === "month" ? (
@@ -75,7 +77,7 @@ const LineGraphPage: React.FC<CONTRIBUTIONCALENDARWEEKS> = ({
               <Option value="11">11月</Option>
               <Option value="12">12月</Option>
             </Select>
-            <LineGraphInMonth
+            <LineGraphInDays
               contributionCalendarWeeks={contributionCalendarWeeks}
               currentMonth={currentMonth}
             />

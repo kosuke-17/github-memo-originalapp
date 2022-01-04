@@ -7,10 +7,8 @@ Chart.register(CategoryScale);
 import { CONTRIBUTIONCALENDARWEEKS } from "../common/Types";
 import { Select } from "antd";
 import { useState } from "react";
-import LineGraphInMonth from "../components/templates/LineGraphInMonth";
 import commitsDataFromGithub from "../hooks/api/commitsDataFromGithub";
 import LineGraphInDays from "../components/templates/LineGraphInDays";
-
 
 const { Option } = Select;
 

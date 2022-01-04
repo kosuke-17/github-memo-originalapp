@@ -30,12 +30,24 @@ const LineGraphInDays: React.FC<PROPS> = ({
       },
     ],
   };
+  const options = {
+    scales: {
+      x: {
+        display: true,
+        title: {
+          display: true,
+          text: `${currentMonth}月`,
+          size: 20,
+        },
+      },
+    },
+  };
 
   return (
     <div className="flex justify-center items-center ">
       <div className="w-screen p-8">
         <div className="flex justify-center">
-          <Line data={data} />
+          <Line options={options} data={data} />
         </div>
       </div>
     </div>

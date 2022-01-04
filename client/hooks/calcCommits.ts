@@ -1,7 +1,7 @@
 import { CONTRIBUTIONCALENDARWEEKS, CONTRIBUTIONDAY } from "../common/Types";
 import moment from "moment";
 
-export const totalCommitsInMonth = ({
+export const totalCommitsInYear = ({
   contributionCalendarWeeks,
 }: CONTRIBUTIONCALENDARWEEKS): number[] => {
   let monthCommitsInYear = new Array<number[]>();

@@ -1,25 +1,30 @@
 import React from "react";
 import { Line } from "react-chartjs-2";
-import { totalCommitsInMonth } from "../../hooks/calcCommits";
-import { MONTH_LABEL } from "../../common/MONTH_LABEL";
-import { CONTRIBUTIONCALENDARWEEKS } from "../../common/Types";
+import { totalCommitsInDay } from "../../hooks/calcCommits";
+import { CONTRIBUTIONDAYS } from "../../common/Types";
 
-const LineGraphInMonth: React.FC<CONTRIBUTIONCALENDARWEEKS> = ({
+type PROPS = {
+  contributionCalendarWeeks: [CONTRIBUTIONDAYS];
+  currentMonth: string;
+};
+
+const LineGraphInMonth: React.FC<PROPS> = ({
   contributionCalendarWeeks,
+  currentMonth,
 }) => {
   //各月のコミット数を取得
-  const commitsDataInMonth: number[] = totalCommitsInMonth({
+  const { monthCommitsInYear, commmitDate } = totalCommitsInDay({
     contributionCalendarWeeks,
   });
 
   // ライングラフ用のデータを用意
   const data = {
-    labels: MONTH_LABEL,
+    labels: commmitDate[Number(currentMonth) - 1],
     datasets: [
       {
         label: "Commit数",
         fill: false,
-        data: commitsDataInMonth,
+        data: monthCommitsInYear[Number(currentMonth) - 1],
         borderColor: "rgba(75,192,192,1)",
         pointBorderWidth: 5,
       },
@@ -31,7 +36,7 @@ const LineGraphInMonth: React.FC<CONTRIBUTIONCALENDARWEEKS> = ({
         display: true,
         title: {
           display: true,
-          text: "2021年",
+          text: `${currentMonth}月`,
           size: 20,
         },
       },

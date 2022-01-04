@@ -38,6 +38,7 @@ export const COMMITCOUNT_QUERY = gql`
             contributionDays {
               contributionCount
               date
+              color
             }
           }
         }

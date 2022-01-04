@@ -42,6 +42,8 @@ const LineGraphPage: React.FC<CONTRIBUTIONCALENDARWEEKS> = ({
           <Option value="11">11月</Option>
           <Option value="12">12月</Option>
         </Select>
+        <span className="pl-4 text-sm lg:text-lg">C: Commit数</span>
+
         <CommitCalenderInDay
           contributionCalendarWeeks={contributionCalendarWeeks}
           currentMonth={currentMonth}

@@ -1,6 +1,6 @@
 import React from "react";
-import { PINNEDITEM_NODE, ITEM_LANGUAGE_EDGE } from "../common/Types";
-import PinnedItemCard from "../components/atoms/Card/PinnedItemCard";
+import { PINNEDITEM_NODE, ITEM_LANGUAGE_EDGE } from "../../common/Types";
+import PinnedItemCard from "../atoms/Card/PinnedItemCard";
 import Link from "next/link";
 import moment from "moment";
 

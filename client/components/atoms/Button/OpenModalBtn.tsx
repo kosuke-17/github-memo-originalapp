@@ -1,4 +1,4 @@
-import { OPENMODAL_PROPS } from "../../common/Types";
+import { OPENMODAL_PROPS } from "../../../common/Types";
 
 const CloseModalBtn: React.FC<OPENMODAL_PROPS> = ({
   children,

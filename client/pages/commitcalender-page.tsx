@@ -1,5 +1,5 @@
-import GraphCard from "../components/atoms/GraphCard";
-import TabCard from "../components/atoms/GraphTabCard";
+import GraphCard from "../components/atoms/Card/GraphCard";
+import TabCard from "../components/atoms/Card/GraphTabCard";
 import { CONTRIBUTIONCALENDARWEEKS } from "../common/Types";
 import commitsDataFromGithub from "../hooks/api/commitsDataFromGithub";
 import CommitCalenderInDay from "../components/templates/CommitCalenderInDay";

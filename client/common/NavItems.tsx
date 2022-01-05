@@ -25,5 +25,5 @@ export const NAVITEMS = [
   },
   { text: "ログイン", icon: <LoginOutlined />, link: "/login-page" },
 
-  { text: "ログアウト", icon: <LogoutOutlined />, link: "/login-page" },
+  { text: "ログアウト", icon: <LogoutOutlined />, link: "/logout-page" },
 ];

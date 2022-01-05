@@ -3,7 +3,7 @@ import { CommitCalenderInDay_PROPS, CONTRIBUTIONDAY } from "../../common/Types";
 import CommitCalendarCard from "../atoms/Card/CommitCalendarCard";
 import React, { useState } from "react";
 import ModalScreen from "../atoms/ModalScreen";
-import { Button, Form, Input, Rate } from "antd";
+import { Button, Form, Rate } from "antd";
 import MemoInput from "../atoms/Input/MemoInput";
 import FormCard from "../molecules/formCard";
 import OpenModalBtn from "../atoms/Button/OpenModalBtn";
@@ -15,6 +15,7 @@ const CommitCalenderInDay: React.FC<CommitCalenderInDay_PROPS> = ({
 }) => {
   //詳細画面表示用のフラグ
   const [openCommitDetail, setOpenCommitDetail] = useState(false);
+
   const [commitDate, setCommitDate] = useState<string>("");
   const [memo, setMemo] = useState<string>("");
   const [commitContributonCount, setCommitContributonCount] =
@@ -52,9 +53,12 @@ const CommitCalenderInDay: React.FC<CommitCalenderInDay_PROPS> = ({
     contributionCalendarWeeks,
     currentMonth,
   });
-  // console.log(selectedRate);
+
   const submitCommitdata = () => {
-    console.log(commitDate, commitContributonCount, selectedRate, memo);
+    alert(
+      `保存内容:${commitDate}, ${commitContributonCount}, ${selectedRate}, ${memo}`
+    );
+    closeModal();
   };
 
   return (

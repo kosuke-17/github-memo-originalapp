@@ -6,7 +6,7 @@ const CloseModalBtn: React.FC<CLOSEMODAL_PROPS> = ({
   closeModal,
 }) => {
   return (
-    <Button className="pl-2" type="primary" onClick={() => closeModal()}>
+    <Button className="ml-2" type="primary" onClick={() => closeModal()}>
       {children}
     </Button>
   );

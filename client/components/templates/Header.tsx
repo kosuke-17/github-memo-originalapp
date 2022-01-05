@@ -5,13 +5,13 @@ import NavItem from "../atoms/NavItem";
 import { NAVITEMS } from "../../common/NAVITEMS";
 import HumbergerMenu from "../atoms/HumbergerMenu";
 import ModalScreen from "../atoms/ModalScreen";
-import Card from "../atoms/Card";
-import ModalButton from "../atoms/ModalButton";
+import Card from "../atoms/Card/Card";
+import ChangeModalBtn from "../atoms/Button/ChangeModalBtn";
 
 const Header: React.FC = () => {
   const [openMenu, setOpenMenu] = useState(false);
 
-  const chngeModal = () => {
+  const changeModal = () => {
     setOpenMenu(!openMenu);
   };
 
@@ -46,18 +46,18 @@ const Header: React.FC = () => {
                   {NAVITEMS.map((navItem, index) => {
                     return (
                       <div className="py-2 text-black" key={index}>
-                        <ModalButton chngeModal={chngeModal}>
+                        <ChangeModalBtn changeModal={changeModal}>
                           <NavItem {...navItem} />
                           <hr />
-                        </ModalButton>
+                        </ChangeModalBtn>
                       </div>
                     );
                   })}
-                  <ModalButton chngeModal={chngeModal}>
+                  <ChangeModalBtn changeModal={changeModal}>
                     <span className="p-1 border-2 hover:text-gray-300 hover:border-gray-400">
                       戻る
                     </span>
-                  </ModalButton>
+                  </ChangeModalBtn>
                 </div>
               </Card>
             </div>
@@ -66,9 +66,9 @@ const Header: React.FC = () => {
           </React.Fragment>
         ) : (
           <div className="pb-2 pr-8 md:invisible">
-            <ModalButton chngeModal={chngeModal}>
+            <ChangeModalBtn changeModal={changeModal}>
               <HumbergerMenu />
-            </ModalButton>
+            </ChangeModalBtn>
           </div>
         )}
       </div>

@@ -1,6 +1,6 @@
 import LineGraphInMonth from "../components/templates/LineGraphInMonth";
-import GraphCard from "../components/atoms/GraphCard";
-import TabCard from "../components/atoms/GraphTabCard";
+import GraphCard from "../components/atoms/Card/GraphCard";
+import TabCard from "../components/atoms/Card/GraphTabCard";
 import { CategoryScale } from "chart.js";
 import Chart from "chart.js/auto";
 Chart.register(CategoryScale);

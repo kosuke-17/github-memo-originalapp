@@ -20,8 +20,8 @@ const LineGraphInMonth: React.FC<CONTRIBUTIONCALENDARWEEKS> = ({
         label: "Commit数",
         fill: false,
         data: commitsDataInMonth,
-        borderColor: "rgba(75,192,192,1)",
-        pointBorderWidth: 5,
+        borderColor: "rgba(75,192,192)",
+        radius: 0,
       },
     ],
   };
@@ -34,6 +34,9 @@ const LineGraphInMonth: React.FC<CONTRIBUTIONCALENDARWEEKS> = ({
           text: "2021年",
           size: 20,
         },
+      },
+      y: {
+        min: 0,
       },
     },
   };

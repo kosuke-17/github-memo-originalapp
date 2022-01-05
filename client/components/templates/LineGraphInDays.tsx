@@ -26,16 +26,23 @@ const LineGraphInDays: React.FC<PROPS> = ({
         fill: false,
         data: monthCommitsInYear[Number(currentMonth) - 1],
         borderColor: "rgba(75,192,192,1)",
-        pointBorderWidth: 5,
+        radius: 0,
       },
     ],
+  };
+  const options = {
+    scales: {
+      y: {
+        min: 0,
+      },
+    },
   };
 
   return (
     <div className="flex justify-center items-center ">
       <div className="w-screen p-8">
         <div className="flex justify-center">
-          <Line data={data} />
+          <Line options={options} data={data} />
         </div>
       </div>
     </div>

@@ -6,8 +6,10 @@ import React from "react";
 import PasswordInput from "../atoms/Input/PasswordInput";
 interface PROPS {
   loginClick: Function;
+  setEmail: Function;
+  setPassword: Function;
 }
-const LoginCard: React.FC<PROPS> = ({ loginClick }) => {
+const LoginCard: React.FC<PROPS> = ({ loginClick, setEmail, setPassword }) => {
   return (
     <React.Fragment>
       <Card>
@@ -20,8 +22,8 @@ const LoginCard: React.FC<PROPS> = ({ loginClick }) => {
           </p>
           <div className="flex justify-center">
             <form action="#" className="w-1/2">
-              <EmailInput />
-              <PasswordInput />
+              <EmailInput setEmail={setEmail} />
+              <PasswordInput setPassword={setPassword} />
               <LoginButton name="ログイン" loginClick={loginClick} />
             </form>
           </div>

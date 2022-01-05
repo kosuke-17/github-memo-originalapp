@@ -13,9 +13,18 @@ export type GRAPHTAB = {
   text: string;
   link: string;
 };
+export type OPENMODAL_PROPS = {
+  children: ReactNode;
+  openModal: Function;
+  day?: CONTRIBUTIONDAY;
+};
+export type CLOSEMODAL_PROPS = {
+  children: ReactNode;
+  closeModal: Function;
+};
 export type CHANGEMODAL_PROPS = {
   children: ReactNode;
-  chngeModal: Function;
+  changeModal: Function;
 };
 // ---------------------------------------
 

@@ -1,5 +1,5 @@
 import React from "react";
-import { CommitCalendarCard } from "../../common/Types";
+import { CommitCalendarCard } from "../../../common/Types";
 
 const CommitDetailCard: React.FC<CommitCalendarCard> = ({ children }) => {
   return (

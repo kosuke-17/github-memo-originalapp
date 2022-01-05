@@ -1,8 +1,8 @@
 import React from "react";
 import { Line } from "react-chartjs-2";
-import { totalCommitsInMonth } from "../../hooks/calcCommits";
-import { MONTH_LABEL } from "../../common/MONTH_LABEL";
-import { CONTRIBUTIONCALENDARWEEKS } from "../../common/Types";
+import { totalCommitsInMonth } from "../hooks/calcCommits";
+import { MONTH_LABEL } from "../common/MONTH_LABEL";
+import { CONTRIBUTIONCALENDARWEEKS } from "../common/Types";
 
 const LineGraphInMonth: React.FC<CONTRIBUTIONCALENDARWEEKS> = ({
   contributionCalendarWeeks,

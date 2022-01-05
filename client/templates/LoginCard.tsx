@@ -1,9 +1,9 @@
-import Card from "../atoms/Card/Card";
-import EmailInput from "../atoms/Input/EmailInput";
-import LoginButton from "../atoms/Button/LoginButton";
+import Card from "../components/atoms/Card/Card";
+import EmailInput from "../components/atoms/Input/EmailInput";
+import LoginButton from "../components/atoms/Button/LoginButton";
 import { GithubOutlined } from "@ant-design/icons";
 import React from "react";
-import PasswordInput from "../atoms/Input/PasswordInput";
+import PasswordInput from "../components/atoms/Input/PasswordInput";
 interface PROPS {
   loginClick: Function;
 }

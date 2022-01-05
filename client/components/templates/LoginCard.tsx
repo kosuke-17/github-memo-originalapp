@@ -13,8 +13,7 @@ const LoginCard: React.FC<PROPS> = ({ loginClick }) => {
       <Card>
         <div>
           <p className="font-bold text-4xl bg-gray-400 p-4 rounded-md">
-            <GithubOutlined className="text-7xl" />
-            GitHub ログイン
+            <GithubOutlined className="text-7xl" /> ログイン
           </p>
           <p className="">
             *GitHubアカウントに登録いているパスワードとメールアドレスを入力してください

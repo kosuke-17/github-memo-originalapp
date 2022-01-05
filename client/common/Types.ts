@@ -39,7 +39,6 @@ export type PINNEDITEM = {
   __typename: string;
   node: PINNEDITEM_NODE;
 };
-
 export type PINNEDITEM_NODE = {
   id: Key;
   name: string;
@@ -50,7 +49,6 @@ export type PINNEDITEM_NODE = {
     edges: [ITEM_LANGUAGE_EDGE];
   };
 };
-
 export type ITEM_LANGUAGE_EDGE = {
   node: { id: string; name: string; color: string };
 };
@@ -63,11 +61,9 @@ export type ITEM_LANGUAGE_EDGE = {
 export type CONTRIBUTIONCALENDARWEEKS = {
   contributionCalendarWeeks: [CONTRIBUTIONDAYS];
 };
-
 export type WEEK = {
   contributionDays: [CONTRIBUTIONDAY];
 };
-
 export type CONTRIBUTIONDAYS = [CONTRIBUTIONDAY];
 export type CONTRIBUTIONDAY = {
   __typename: string;
@@ -75,21 +71,19 @@ export type CONTRIBUTIONDAY = {
   date: string;
   color: string;
 };
-
 export type DAY = {
   contributionCount: number;
 };
 // ---------------------------------------
 
 /**
- * カレンダーコンポーネントでの方定義
+ * カレンダーコンポーネントでの型定義
  */
 // ---------------------------------------
 export type CommitCalenderInDay_PROPS = {
   contributionCalendarWeeks: [CONTRIBUTIONDAYS];
   currentMonth: string;
 };
-
 export type SelectedMonth_PROPS = {
   contributionCalendarWeeks: [CONTRIBUTIONDAYS];
   currentMonth: string;
@@ -97,5 +91,8 @@ export type SelectedMonth_PROPS = {
 export type CommitCalendarCard = {
   children: ReactNode;
   dayColor: string;
+};
+export type MemoInput_PROPS = {
+  setMemo: Function;
 };
 // ---------------------------------------

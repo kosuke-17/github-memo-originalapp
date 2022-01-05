@@ -8,7 +8,9 @@ interface PROPS {
 const LoginButton: React.FC<PROPS> = ({ name, loginClick }) => {
   return (
     <div className="py-2">
-      <Button onClick={() => loginClick()}>{name}</Button>
+      <Button type="primary" onClick={() => loginClick()}>
+        {name}
+      </Button>
     </div>
   );
 };

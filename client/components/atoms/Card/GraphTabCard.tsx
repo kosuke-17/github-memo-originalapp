@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { GRAPHTABS } from "../../common/GRAPHTABS";
-import { GRAPHTAB } from "../../common/Types";
+import { GRAPHTABS } from "../../../common/GRAPHTABS";
+import { GRAPHTAB } from "../../../common/Types";
 
 const GraphTabCard: React.FC = () => {
   return (

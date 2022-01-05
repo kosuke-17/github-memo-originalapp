@@ -18,10 +18,10 @@ const Header: React.FC = () => {
   return (
     <div className="flex justify-between bg-gray-300 ">
       {/* サイトロゴ */}
-      <div className="pt-3 pl-4 w-1/4">
+      <div className="pt-5 pl-4 w-1/4">
         <Link href="/">
-          <a>
-            <Image src="/logo.png" alt="ホーム画像" width={100} height={30} />
+          <a className="text-3xl text-black hover:border-gray-400">
+            ラクラクGitHub
           </a>
         </Link>
       </div>

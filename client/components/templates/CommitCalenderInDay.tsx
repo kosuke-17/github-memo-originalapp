@@ -1,13 +1,13 @@
-import { commitDataBySelectedMonth } from "../hooks/calcCommits";
-import { CommitCalenderInDay_PROPS, CONTRIBUTIONDAY } from "../common/Types";
-import CommitCalendarCard from "../components/atoms/Card/CommitCalendarCard";
+import { commitDataBySelectedMonth } from "../../hooks/calcCommits";
+import { CommitCalenderInDay_PROPS, CONTRIBUTIONDAY } from "../../common/Types";
+import CommitCalendarCard from "../atoms/Card/CommitCalendarCard";
 import React, { useState } from "react";
-import ModalScreen from "../components/atoms/ModalScreen";
+import ModalScreen from "../atoms/ModalScreen";
 import { Button, Form, Input, Rate } from "antd";
-import MemoInput from "../components/atoms/Input/MemoInput";
-import FormCard from "../components/molecules/formCard";
-import OpenModalBtn from "../components/atoms/Button/OpenModalBtn";
-import CloseModalBtn from "../components/atoms/Button/CloseModalBtn";
+import MemoInput from "../atoms/Input/MemoInput";
+import FormCard from "../molecules/formCard";
+import OpenModalBtn from "../atoms/Button/OpenModalBtn";
+import CloseModalBtn from "../atoms/Button/CloseModalBtn";
 
 const CommitCalenderInDay: React.FC<CommitCalenderInDay_PROPS> = ({
   contributionCalendarWeeks,
